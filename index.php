@@ -149,6 +149,9 @@ $db = [
     ]
 ];
 
+$snack_5_keys = array_keys((array)$db);
+
+$className = "";
 ?>
 
 
@@ -205,20 +208,24 @@ $db = [
     <h2>SNACK 5</h2>
 
 
-    <div class="grey">
-    <?php for ($i = 0; $i < count($db['teachers']); $i++) : ?>
-        <div> <?php echo "{$db['teachers'][$i]['name']}   {$db['teachers'][$i]['lastname']}"?> </div>
 
+    <div class="row">
+        <?php for($y=0; $y < count($snack_5_keys); $y++) :?>
+            <div class= <?php if($y == 0) {
+                echo "grey";
+                } else{
+                    echo "red";
+                }
+                ?>>
+    
+                <div class="chiave"><?php echo $snack_5_keys[$y]?></div> 
+    
+                <?php for ($i = 0; $i < count($db[$snack_5_keys[$y]]); $i++) : ?>
+                    <div> <?php echo "{$db[$snack_5_keys[$y]][$i]['name']}   {$db[$snack_5_keys[$y]][$i]['lastname']}"?> </div>
+                <?php endfor; ?>
+            </div>
         <?php endfor; ?>
     </div>
-
-    <div class="red">
-    <?php for ($i = 0; $i < count($db['pm']); $i++) : ?>
-        <div> <?php echo "{$db['pm'][$i]['name']}   {$db['pm'][$i]['lastname']}"?> </div>
-
-        <?php endfor; ?>
-    </div>
-
     </body>
 </html>
 
