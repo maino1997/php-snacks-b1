@@ -205,10 +205,9 @@ $className = "";
         <?php endfor; ?>
 
     
+
+    
     <h2>SNACK 5</h2>
-
-
-
     <div class="row">
         <?php for($y=0; $y < count($snack_5_keys); $y++) :?>
             <div class= <?php if($y == 0) {
