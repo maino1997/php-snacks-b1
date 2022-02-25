@@ -117,12 +117,39 @@ Sembra facile e facile non è. Naturalmente più la scaletta di partenza sarà f
  A questo proposito vi esorto a concentrarvi sulla divisione in paragrafi (o capoversi).";
 
  $separeted = explode(".", $paragraph);
-
-
-
 ?>
 
 
+
+<!-- Snack 5
+Stampiamo il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM in un rettangolo verde. -->
+
+<?php
+
+$db = [
+    'teachers' => [
+        [
+            'name' => 'Michele',
+            'lastname' => 'Papagni'
+        ],
+        [
+            'name' => 'Fabio',
+            'lastname' => 'Forghieri'
+        ]
+    ],
+    'pm' => [
+        [
+            'name' => 'Roberto',
+            'lastname' => 'Marazzini'
+        ],
+        [
+            'name' => 'Federico',
+            'lastname' => 'Pellegrini'
+        ]
+    ]
+];
+
+?>
 
 
 
@@ -132,6 +159,7 @@ Sembra facile e facile non è. Naturalmente più la scaletta di partenza sarà f
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
@@ -172,6 +200,25 @@ Sembra facile e facile non è. Naturalmente più la scaletta di partenza sarà f
     <?php for ($i = 0; $i < count($separeted); $i++) : ?>
         <p> <?php echo $separeted[$i] ?> </p>
         <?php endfor; ?>
+
+    
+    <h2>SNACK 5</h2>
+
+
+    <div class="grey">
+    <?php for ($i = 0; $i < count($db['teachers']); $i++) : ?>
+        <div> <?php echo "{$db['teachers'][$i]['name']}   {$db['teachers'][$i]['lastname']}"?> </div>
+
+        <?php endfor; ?>
+    </div>
+
+    <div class="red">
+    <?php for ($i = 0; $i < count($db['pm']); $i++) : ?>
+        <div> <?php echo "{$db['pm'][$i]['name']}   {$db['pm'][$i]['lastname']}"?> </div>
+
+        <?php endfor; ?>
+    </div>
+
     </body>
 </html>
 
