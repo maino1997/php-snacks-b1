@@ -83,13 +83,47 @@ $randomNumbers = [];
 while(count($randomNumbers) < 15){
 
     $randomNum = rand(1,15);
-    var_dump($randomNum);
     if(!in_array($randomNum , $randomNumbers)){
         array_push($randomNumbers, $randomNum);
     }
 }
+?>
+
+<!-- 
+Snack 4
+Prendere un paragrafo abbastanza lungo, contenente diverse frasi. 
+Prendere il paragrafo e suddividerlo in tanti paragrafi in base ai punti: ogni punto un nuovo paragrafo. -->
+
+<?php 
+
+$paragraph = "Da quest’anno gli automobilisti cinesi potranno beneficiare dell’agopuntura mentre guidano. E’ stato infatti 
+messo in vendita uno speciale cuscino elettrico, a vibrazioni, in grado di alleviare la fatica del guidatore.
+
+Studiato da esperti cinesi di agopuntura, questo dispositivo si è già rivelato efficace nel ridurre gli incidenti stradali 
+dovuti a una eccessiva fatica o stanchezza degli automobilisti.
+
+Il cuscino, prodotto da una ditta di Pechino, è stato diffuso in 135.000 pezzi destinati al mercato interno. Ma 
+già alcune aziende francesi, tedesche e americane ne hanno chiesto la licenza per produrlo e destinarlo agli automobilisti occidentali.
+
+Bene. Intanto osserviamo che tutte le informazioni riguardano lo stesso argomento: il cuscino elettrico.
+ Notiamo poi che i pezzi sono collegati tra loro secondo un ordine di successione che, in alcuni casi, è vincolante (se invertiamo la posizione delle due frasi che compongono il primo capoverso il discorso non fila più).
+
+Poi: alcune espressioni servono a garantire i legami tra i pezzi del discorso; per esempio infatti, questo dispositivo, il cuscino, ma. Infine: il discorso progredisce spostandosi dal piano dell’efficacia sociale e individuale (il cuscino fa bene ai guidatori e previene gli incidenti) a quello economico (si vende tanto), dalla prospettiva cinese a quella occidentale: il cuscino elettrico si sta per diffondere in Europa. 
+Ecco, un buon testo giornalistico, e non solo, dovrebbe presentare queste caratteristiche. 
+Sembra facile e facile non è. Naturalmente più la scaletta di partenza sarà forte e più vi sarà facile
+ rispettare questi criteri di coerenza/coesione/progressione interna al testo. Tuttavia quando si passa dalla fase dell’
+ ideazione a quella della stesura si possono incontrare difficoltà. Per esempio non sempre risulta agevole trascorrere da un 
+ argomento all’altro, legando i pensieri (il testo risulta allora segmentato, spezzato).
+ A questo proposito vi esorto a concentrarvi sulla divisione in paragrafi (o capoversi).";
+
+ $separeted = explode(".", $paragraph);
+
+
 
 ?>
+
+
+
 
 
 <!DOCTYPE html>
@@ -133,6 +167,11 @@ while(count($randomNumbers) < 15){
             <li> <?php echo($randomNumbers[$i])  ?> </li>
         <?php endfor; ?>
     </ul>
+
+    <h2>SEPARETED TEXT</h2>
+    <?php for ($i = 0; $i < count($separeted); $i++) : ?>
+        <p> <?php echo $separeted[$i] ?> </p>
+        <?php endfor; ?>
     </body>
 </html>
 
