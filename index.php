@@ -72,6 +72,25 @@ $keys = array_keys((array)$posts);
 
 ?>
 
+<!-- Snack 3
+Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta. -->
+
+<?php 
+
+$randomNumbers = [];
+
+
+while(count($randomNumbers) < 15){
+
+    $randomNum = rand(1,15);
+    var_dump($randomNum);
+    if(!in_array($randomNum , $randomNumbers)){
+        array_push($randomNumbers, $randomNum);
+    }
+}
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +105,7 @@ $keys = array_keys((array)$posts);
 <?php echo $message ?>
     </h2>
 
-    <h2>POSTS DATES</h2>
+    <h2>POSTS </h2>
     <ul>
         <?php for($i = 0; $i < count($keys); $i++) : ?>
 
@@ -105,12 +124,15 @@ $keys = array_keys((array)$posts);
                 
                 <?php endfor; ?>    
             <?php endfor; ?>    
-        </ul>
+    </ul>
 
         
-    <h2>POSTS DESC</h2>
+    <h2>ARRAY CASUAL</h2>
     <ul>
-        </ul>
+        <?php for($i = 0; $i < count($randomNumbers); $i ++) :?> 
+            <li> <?php echo($randomNumbers[$i])  ?> </li>
+        <?php endfor; ?>
+    </ul>
     </body>
 </html>
 
