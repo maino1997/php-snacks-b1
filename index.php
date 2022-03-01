@@ -14,7 +14,7 @@ $message = "";
 
 
 
-if(strlen($name) < 3 && strpos($mail , '.') && strpos($mail , '@') && is_numeric($age)){
+if(mb_strlen($name) < 3 && strpos($mail , '.') !== false && strpos($mail , '@') !==  false && is_numeric($age)){
     $message = "accesso riuscito";
 } else{
     $message = "accesso negato";
@@ -204,6 +204,13 @@ $className = "";
         <p> <?php echo $separeted[$i] ?> </p>
         <?php endfor; ?>
 
+    <hr>    
+
+    <?php foreach($separeted as $line) : ?>        
+        <p> <?php echo $line?> </p>
+    <?php endforeach; ?>    
+
+
     
 
     
@@ -224,7 +231,30 @@ $className = "";
                 <?php endfor; ?>
             </div>
         <?php endfor; ?>
+
+
+        <hr>
+
+
+        <?php foreach($db as $type => $typevalue) : ?>
+        <div class= <?php if($type === "teachers") {
+                echo "grey";
+                } else{
+                    echo "red";
+                }
+                ?>>
+                    <div class="chiave"><?php echo $type?></div> 
+
+                    <?php foreach($typevalue as $singlevalue) : ?>
+                    <div> <?php echo "{$singlevalue['name']}   {$singlevalue['lastname']}"?> </div>
+                    <?php endforeach; ?>
+        </div>            
+        <?php endforeach; ?>
+
+
     </div>
+
+
     </body>
 </html>
 
